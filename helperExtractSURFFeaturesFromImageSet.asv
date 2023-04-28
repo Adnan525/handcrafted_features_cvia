@@ -1,0 +1,9 @@
+function [outputFeatures, setLabels] = helperExtractSURFFeaturesFromImageSet(img,  maxFeatureLimit)
+
+        img = im2gray(img)
+        points = detectSURFFeatures(img);  
+        [features, valid_points] = extractFeatures(img, points);
+        points = valid_points.selectStrongest(maxFeatureLimit);
+    end
+
+end % end of function
